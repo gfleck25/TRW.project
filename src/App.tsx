@@ -120,10 +120,78 @@ function App() {
         Skip to main content
       </a>
 
-      {/* Animated Background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent"></div>
+      {/* Enhanced Animated Background with Flowing Waves */}
+      <div className="fixed inset-0 bg-slate-950">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
+        
+        {/* Flowing wave layers */}
+        <div className="absolute inset-0 opacity-30">
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#1e40af" stopOpacity="0.3" />
+                <stop offset="50%" stopColor="#0891b2" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#1e40af" stopOpacity="0.1" />
+              </linearGradient>
+              <linearGradient id="wave2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#0891b2" stopOpacity="0.2" />
+                <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#0891b2" stopOpacity="0.1" />
+              </linearGradient>
+              <linearGradient id="wave3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.1" />
+                <stop offset="50%" stopColor="#1e40af" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.15" />
+              </linearGradient>
+            </defs>
+            
+            {/* First wave layer */}
+            <path 
+              d="M0,400 C300,300 600,500 900,350 C1050,275 1150,325 1200,300 L1200,800 L0,800 Z" 
+              fill="url(#wave1)"
+              className="animate-wave-slow"
+            />
+            
+            {/* Second wave layer */}
+            <path 
+              d="M0,500 C250,400 550,600 800,450 C950,375 1100,425 1200,400 L1200,800 L0,800 Z" 
+              fill="url(#wave2)"
+              className="animate-wave-medium"
+            />
+            
+            {/* Third wave layer */}
+            <path 
+              d="M0,600 C200,500 500,700 750,550 C900,475 1050,525 1200,500 L1200,800 L0,800 Z" 
+              fill="url(#wave3)"
+              className="animate-wave-fast"
+            />
+          </svg>
+        </div>
+
+        {/* Elegant flowing shapes */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-full blur-3xl animate-float-slow"></div>
+          <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-r from-cyan-600/15 to-blue-600/15 rounded-full blur-3xl animate-float-medium"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-float-fast"></div>
+        </div>
+
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        {/* Radial highlights */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-blue-900/20 via-transparent to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-cyan-900/20 via-transparent to-transparent"></div>
+        </div>
       </div>
 
       {/* Header */}
